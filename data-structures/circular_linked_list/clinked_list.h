@@ -1,6 +1,6 @@
 #ifndef CLINKED_LIST_H
 #define CLINKED_LIST_H
-#include "node.h"
+#include "../node/node.h"
 
 class clinked_list
 {
