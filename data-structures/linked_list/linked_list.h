@@ -16,7 +16,7 @@ public:
 	void assign(const int& value, const size_t& number);
 	void resize(const size_t& size_to);
 	void push_front(const int& value);
-	void pop_front();
+	int pop_front();
 	void insert_after(node*& element, const int& value);
 	void erase_after(node*& element);
 	void display();

@@ -1,5 +1,6 @@
 #include "linked_list.h"
 #include <iostream>
+#include <stdexcept>
 
 linked_list::linked_list()
 {
@@ -119,14 +120,16 @@ void linked_list::push_front(const int& value)
 	}
 }
 
-void linked_list::pop_front()
+int linked_list::pop_front()
 {
-	if (empty()) return;
+	if (empty()) throw std::exception("Object is empty");
+	int value = first->value();
 	node* next = first->get_next();
 	first = nullptr;
 	delete first;
 	first = next;
 	size--;
+	return value;
 }
 
 void linked_list::insert_after(node*& element, const int& value)
