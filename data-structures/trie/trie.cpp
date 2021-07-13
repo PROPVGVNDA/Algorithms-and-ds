@@ -34,7 +34,7 @@ bool trie::starts_with(const std::string& prefix)
 	return _get_node(prefix) != nullptr;
 }
 
-trie_node* trie::_get_node(std::string word)
+trie_node* trie::_get_node(const std::string& word)
 {
 	trie_node*& current_node = m_Root;
 	for (size_t i = 0; i < word.length(); i++)

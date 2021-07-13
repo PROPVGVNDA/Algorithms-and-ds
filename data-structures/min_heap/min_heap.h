@@ -4,7 +4,7 @@
 class min_heap
 {
 public:
-	min_heap(const int& capacity);
+	min_heap(const size_t& capacity);
 	~min_heap();
 	int parent(const size_t& index); 
 	int left(const size_t& index);

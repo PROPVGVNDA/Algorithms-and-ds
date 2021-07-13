@@ -20,7 +20,7 @@ const int queue::front()
 const int queue::back()
 {
 	if (empty()) throw std::out_of_range("Object is empty");
-	node* temp = top;
+	node::node* temp = top;
 	// iterate through all element in the queue, until an element points to nullptr, which means it is the last element in the queue
 	while (temp->get_next() != nullptr)
 	{
@@ -41,7 +41,7 @@ size_t queue::get_size() const
 
 void queue::push(const int& value)
 {
-	node* new_node = new node(value);
+	node::node* new_node = new node::node(value);
 	if (empty())
 	{
 		top = new_node;

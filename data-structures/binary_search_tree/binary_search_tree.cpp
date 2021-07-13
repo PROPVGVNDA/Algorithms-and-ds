@@ -17,7 +17,7 @@ binary_search_tree::binary_search_tree()
 
 binary_search_tree::~binary_search_tree()
 {
-	if (m_Root != nullptr) delete m_Root;
+	delete m_Root;
 }
 
 const bool binary_search_tree::empty() const

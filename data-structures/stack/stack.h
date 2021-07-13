@@ -13,7 +13,7 @@ public:
 	void push(const int& value);
 	void display() const;
 private:
-	node* m_Top;
+	node::node* m_Top;
 	size_t m_Size;
 };
 

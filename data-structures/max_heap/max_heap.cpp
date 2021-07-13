@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdexcept>
 
-max_heap::max_heap(const int& capacity)
+max_heap::max_heap(const size_t& capacity)
 {
 	m_HeapSize = 0;
 	m_Capacity = capacity;
@@ -15,17 +15,17 @@ max_heap::~max_heap()
 	delete[] m_Data;
 }
 
-int max_heap::parent(const size_t& index)
+size_t max_heap::parent(const size_t& index)
 {
 	return (index - 1) / 2;
 }
 
-int max_heap::left(const size_t& index)
+size_t max_heap::left(const size_t& index)
 {
 	return (index * 2) + 1;
 }
 
-int max_heap::right(const size_t& index)
+size_t max_heap::right(const size_t& index)
 {
 	return (index * 2) + 2;
 }
@@ -88,7 +88,7 @@ void max_heap::delete_key(const size_t& index)
 	extract_max();
 }
 
-void max_heap::max_heapify(const int& index)
+void max_heap::max_heapify(const size_t& index)
 {
 	size_t l = left(index);
 	size_t r = right(index);

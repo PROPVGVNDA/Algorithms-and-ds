@@ -3,7 +3,7 @@
 #include <math.h> // for calculating height of heap
 #include <stdexcept> // for handling errors
 
-min_heap::min_heap(const int& capacity)
+min_heap::min_heap(const size_t& capacity)
 {
 	m_HeapSize = 0;
 	m_Capacity = capacity;
@@ -12,7 +12,7 @@ min_heap::min_heap(const int& capacity)
 
 min_heap::~min_heap()
 {
-	delete m_Data;	
+	delete[] m_Data;	
 }
 
 int min_heap::parent(const size_t& index)
@@ -75,7 +75,7 @@ void min_heap::decrease_key(const size_t& index, const int& new_value)
 {
 	size_t i = index;
 	m_Data[i] = new_value;
-	while (index != 0 && m_Data[parent(i) > m_Data[i]])
+	while (index != 0 && m_Data[parent(i)] > m_Data[i])
 	{
 		swap(m_Data[i], m_Data[parent(i)]);
 		i = parent(i);
@@ -84,7 +84,6 @@ void min_heap::decrease_key(const size_t& index, const int& new_value)
 
 void min_heap::delete_key(const size_t& index)
 {
-	if (m_HeapSize == 0 && index >= m_HeapSize) throw std::out_of_range("Index out of range");
 	decrease_key(index, INT_MIN);
 	extract_min();
 }

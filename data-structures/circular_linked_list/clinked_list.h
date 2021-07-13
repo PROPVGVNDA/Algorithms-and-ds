@@ -7,9 +7,9 @@ class clinked_list
 public:
 	clinked_list();
 	~clinked_list();
-	node* front();
-	node* end();
-	node* find(const int& value);
+	node::node* front();
+	node::node* end();
+	node::node* find(const int& value);
 	const size_t get_size() const;
 	bool empty();
 	void clear();
@@ -18,12 +18,12 @@ public:
 	void resize(const size_t& size_to);
 	void push_front(const int& value);
 	void pop_front();
-	void insert_after(node*& element, const int& value);
-	void erase_after(node*& element);
+	void insert_after(node::node*& element, const int& value);
+	void erase_after(node::node*& element);
 	void display();
 private:
-	node* first;
-	node* last;
+	node::node* first;
+	node::node* last;
 	size_t size;
 };
 

@@ -13,21 +13,21 @@ clinked_list::~clinked_list()
 	clear();
 }
 
-node* clinked_list::front()
+node::node* clinked_list::front()
 {
 	return first;
 }
 
-node* clinked_list::end()
+node::node* clinked_list::end()
 {
 	if (empty()) return nullptr;
 	return last;
 }
 
-node* clinked_list::find(const int& value)
+node::node* clinked_list::find(const int& value)
 {
 	if (empty()) return nullptr;
-	node* temp = first;
+	node::node* temp = first;
 	do 
 	{
 		if (temp->value() == value) return temp;
@@ -49,7 +49,7 @@ bool clinked_list::empty()
 void clinked_list::clear()
 {
 	if (empty()) return;
-	node* temp;
+	node::node* temp;
 	last->get_next() = nullptr;
 	while (first != nullptr)
 	{
@@ -90,8 +90,8 @@ void clinked_list::resize(const size_t& size_to)
 		return;
 	}
 	if (size <= size_to) return;
-	int n = 1;
-	node* temp = first;
+	size_t n = 1;
+	node::node* temp = first;
 	while (n != size_to)
 	{
 		temp = temp->get_next();
@@ -107,7 +107,7 @@ void clinked_list::resize(const size_t& size_to)
 
 void clinked_list::push_front(const int& value)
 {
-	node* new_node = new node(value);
+	node::node* new_node = new node::node(value);
 	if (empty())
 	{
 		first = new_node;
@@ -126,7 +126,7 @@ void clinked_list::push_front(const int& value)
 void clinked_list::pop_front()
 {
 	if (empty()) return;
-	node* next = first->get_next();
+	node::node* next = first->get_next();
 	first->get_next() = nullptr;
 	delete first;
 	first = next;
@@ -134,9 +134,9 @@ void clinked_list::pop_front()
 	size--;
 }
 
-void clinked_list::insert_after(node*& element, const int& value)
+void clinked_list::insert_after(node::node*& element, const int& value)
 {
-	node* new_node = new node(value);
+	node::node* new_node = new node::node(value);
 	if (element == last)
 	{
 		new_node->get_next() = first;
@@ -151,9 +151,9 @@ void clinked_list::insert_after(node*& element, const int& value)
 	size++;
 }
 
-void clinked_list::erase_after(node*& element)
+void clinked_list::erase_after(node::node*& element)
 {
-	node* temp_addr = element->get_next()->get_next();
+	node::node* temp_addr = element->get_next()->get_next();
 	if (element->get_next() == first)
 	{
 		first->get_next() = nullptr;
@@ -180,7 +180,7 @@ void clinked_list::erase_after(node*& element)
 void clinked_list::display()
 {
 	if (empty()) return;
-	node* temp = first;
+	node::node* temp = first;
 	do 
 	{
 		std::cout << temp->value() << std::endl;

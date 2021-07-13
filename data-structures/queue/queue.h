@@ -14,7 +14,7 @@ public:
 	void push(const int& value);
 	int pop();
 private:
-	node* top;
+	node::node* top;
 	size_t size;
 };
 

@@ -9,9 +9,10 @@ trie_node::trie_node(const char& c)
 
 trie_node::~trie_node()
 {
-	for (size_t i = 0; i < 26; i++)
-	{
-		if (m_Children[i] != nullptr) delete m_Children[i];
-	}
+// 	for (size_t i = 0; i < 26; i++)
+// 	{
+// 		delete m_Children[i];
+// 	}
+	delete[] m_Children;
 }
 

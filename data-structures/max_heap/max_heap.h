@@ -4,18 +4,18 @@
 class max_heap
 {
 public:
-	max_heap(const int& capacity);
+	max_heap(const size_t& capacity);
 	~max_heap();
-	int parent(const size_t& index);
-	int left(const size_t& index);
-	int right(const size_t& index);
+	size_t parent(const size_t& index);
+	size_t left(const size_t& index);
+	size_t right(const size_t& index);
 	void swap(int& x, int& y);
 	int get_max(); // gets minimum value in heap (root)
 	int extract_max(); // gets and removes minimum value in heap (root)
 	void insert_key(const int& key); // inserts new key in heap
 	void decrease_key(const size_t& index, const int& new_value);
 	void delete_key(const size_t& index);
-	void max_heapify(const int& index);
+	void max_heapify(const size_t& index);
 	bool search(const int& value); // returns true if value is in heap
 	void print_heap();
 	int height();

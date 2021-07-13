@@ -8,15 +8,15 @@ linked_list::linked_list()
 	size = 0;
 }
 
-node* linked_list::front()
+node::node* linked_list::front()
 {
 	return first;
 }
 
-node* linked_list::end()
+node::node* linked_list::end()
 {
-	if (empty()) return nullptr;
-	node* temp = first;
+	if (empty()) throw std::exception("Object is empty");
+	node::node* temp = first;
 	while (temp->get_next() != nullptr)
 	{
 		temp = temp->get_next();
@@ -24,10 +24,10 @@ node* linked_list::end()
 	return temp;
 }
 
-node* linked_list::find(const int& value)
+node::node* linked_list::find(const int& value)
 {
-	if (empty()) return nullptr;
-	node* temp = first;
+	if (empty()) throw std::exception("Object is empty");
+	node::node* temp = first;
 	while (temp != nullptr)
 	{
 		if (temp->value() == value) return temp;
@@ -48,8 +48,8 @@ bool linked_list::empty()
 
 void linked_list::clear()
 {
-	if (empty()) return;
-	node* temp_next;
+	if (empty()) throw std::exception("Object is empty");
+	node::node* temp_next;
 	while (first != nullptr)
 	{
 		temp_next = first->get_next();
@@ -62,7 +62,7 @@ void linked_list::clear()
 
 void linked_list::assign(const int& value)
 {
-	if (empty()) return;
+	if (empty()) throw std::exception("Object is empty");
 	size_t temp_size = size;
 	clear();
 	for (size_t i = 0; i < temp_size; i++)
@@ -82,15 +82,15 @@ void linked_list::assign(const int& value, const size_t& number)
 
 void linked_list::resize(const size_t& size_to)
 {
-	if (empty()) return;
+	if (empty()) throw std::exception("Object is empty");
 	if (size_to == 0)
 	{
 		clear();
 		return;
 	}
-	if (size <= size_to) return;
-	int n = 1;
-	node* temp = first;
+	if (size <= size_to) throw std::out_of_range("Specified size is less then current size");
+	size_t n = 1;
+	node::node* temp = first;
 	while (n != size_to)
 	{
 		temp = temp->get_next();
@@ -104,7 +104,7 @@ void linked_list::resize(const size_t& size_to)
 
 void linked_list::push_front(const int& value)
 {
-	node* nd = new node(value);
+	node::node* nd = new node::node(value);
 	if (empty())
 	{
 		first = nd;
@@ -124,7 +124,7 @@ int linked_list::pop_front()
 {
 	if (empty()) throw std::exception("Object is empty");
 	int value = first->value();
-	node* next = first->get_next();
+	node::node* next = first->get_next();
 	first = nullptr;
 	delete first;
 	first = next;
@@ -132,37 +132,37 @@ int linked_list::pop_front()
 	return value;
 }
 
-void linked_list::insert_after(node*& element, const int& value)
+void linked_list::insert_after(node::node*& element, const int& value)
 {
 	if (element->get_next() == nullptr)
 	{
-		element->get_next() = new node(value);
+		element->get_next() = new node::node(value);
 		element->get_next()->get_next() = nullptr;
 		size++;
 		return;
 	}
 	else
 	{
-		node* temp = element->get_next();
-		element->get_next() = new node(value);
+		node::node* temp = element->get_next();
+		element->get_next() = new node::node(value);
 		element->get_next()->get_next() = temp;
 		size++;
 		return;
 	}
 }
 
-void linked_list::erase_after(node*& element)
+void linked_list::erase_after(node::node*& element)
 {
 	if (element == first)
 	{
-		node* temp_addr = first->get_next()->get_next();
+		node::node* temp_addr = first->get_next()->get_next();
 		delete first->get_next();
 		first->get_next() = temp_addr;
 		size--;
 		return;
 	}
-	if (element->get_next() == nullptr) return;
-	node* temp_addr = element->get_next()->get_next();
+	if (element->get_next() == nullptr) throw std::exception("Specified element is last element in list");
+	node::node* temp_addr = element->get_next()->get_next();
 	delete element->get_next();
 	element->get_next() = temp_addr;
 	size--;
@@ -171,8 +171,8 @@ void linked_list::erase_after(node*& element)
 
 void linked_list::display()
 {
-	if (empty()) return;
-	node* temp = first;
+	if (empty()) throw std::exception("Object is empty");
+	node::node* temp = first;
 	while (temp != nullptr)
 	{
 		std::cout << temp->value() << std::endl;

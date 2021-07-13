@@ -1,5 +1,4 @@
 #include "dnode.h"
-#include <iostream>
 
 int& dnode::value()
 {
@@ -25,9 +24,5 @@ dnode::dnode(const int& value /*= 0*/)
 
 dnode::~dnode()
 {
-	if (next != nullptr)
-	{
-		delete next;
-	}
-	std::cout << "DELETED NODE WITH VALUE " << value() << std::endl;
+	delete next;
 }

@@ -9,6 +9,6 @@ node::node(const int& value)
 
 node::~node()
 {
-	if (m_Left != nullptr) delete m_Left;
-	if (m_Right != nullptr) delete m_Right;
+	delete m_Left;
+	delete m_Right;
 }

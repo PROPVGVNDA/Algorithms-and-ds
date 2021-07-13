@@ -13,7 +13,7 @@ public:
 	bool starts_with(const std::string& prefix);
 private:
 	trie_node* m_Root;
-	trie_node* _get_node(std::string word);
+	trie_node* _get_node(const std::string& word);
 
 };
 

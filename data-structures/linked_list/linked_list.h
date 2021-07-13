@@ -6,9 +6,9 @@ class linked_list
 {
 public:
 	linked_list();
-	node* front();
-	node* end();
-	node* find(const int& value);
+	node::node* front();
+	node::node* end();
+	node::node* find(const int& value);
 	const size_t get_size() const;
 	bool empty();
 	void clear();
@@ -17,11 +17,11 @@ public:
 	void resize(const size_t& size_to);
 	void push_front(const int& value);
 	int pop_front();
-	void insert_after(node*& element, const int& value);
-	void erase_after(node*& element);
+	void insert_after(node::node*& element, const int& value);
+	void erase_after(node::node*& element);
 	void display();
 private:
-	node* first;
+	node::node* first;
 	size_t size;
 };
 

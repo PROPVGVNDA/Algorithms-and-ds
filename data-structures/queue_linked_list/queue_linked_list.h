@@ -11,7 +11,7 @@ public:
 	void display();
 private:
 	linked_list m_Data;
-	node* m_Last;
+	node::node* m_Last;
 	size_t m_Size;
 };
 

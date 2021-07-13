@@ -1,22 +1,22 @@
 #include "node.h"
 
-int node::value()
+int node::node::value()
 {
 	return data;
 }
 
-node*& node::get_next()
+node::node*& node::node::get_next()
 {
 	return next;
 }
 
-node::node(const int& value /*= 0*/)
+node::node::node(const int& value /*= 0*/)
 {
 	data = value;
 	next = nullptr;
 }
 
-node::~node()
+node::node::~node()
 {
 	if (next != nullptr)
 	{

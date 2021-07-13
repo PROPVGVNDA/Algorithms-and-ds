@@ -27,7 +27,7 @@ int stack::pop()
 {
 	if (empty()) throw std::out_of_range("Object is empty");
 	auto value = m_Top->value(); // save value of top node
-	node* next = m_Top->get_next(); // save pointer to next node of top node, if empty, saves nullptr
+	node::node* next = m_Top->get_next(); // save pointer to next node of top node, if empty, saves nullptr
 	m_Top->get_next() = nullptr; // set top node to nullptr in order to correctly free memory
 	delete m_Top; 
 	m_Top = next;
@@ -37,7 +37,7 @@ int stack::pop()
 
 void stack::push(const int& value)
 {
-	node* new_node = new node(value);
+	node::node* new_node = new node::node(value);
 	if (empty())
 	{
 		m_Top = new_node;
@@ -53,7 +53,7 @@ void stack::push(const int& value)
 void stack::display() const
 {
 	if (empty()) throw std::out_of_range("Object is empty");
-	node* temp = m_Top;
+	node::node* temp = m_Top;
 	while (temp != nullptr)
 	{
 		std::cout << temp->value() << std::endl;
