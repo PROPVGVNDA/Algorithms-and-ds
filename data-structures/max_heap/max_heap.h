@@ -10,8 +10,8 @@ public:
 	size_t left(const size_t& index);
 	size_t right(const size_t& index);
 	void swap(int& x, int& y);
-	int get_max(); // gets minimum value in heap (root)
-	int extract_max(); // gets and removes minimum value in heap (root)
+	int get_max(); // gets maximum value in heap (root)
+	int extract_max(); // gets and removes maximum value in heap (root)
 	void insert_key(const int& key); // inserts new key in heap
 	void decrease_key(const size_t& index, const int& new_value);
 	void delete_key(const size_t& index);
