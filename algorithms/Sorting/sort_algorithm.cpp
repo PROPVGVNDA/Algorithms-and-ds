@@ -78,6 +78,30 @@ void sort_algorithm::selection_sort(int* arr, const size_t& size)
 	}
 }
 
+// Time Complexity - O(n + r);
+// n - number of elements
+// r - range of input
+void sort_algorithm::counting_sort(int* arr, const size_t& size)
+{
+	const size_t counter_size = 10;
+	int counter[counter_size]{ 0 };
+	int* temp_arr = new int[size] {0};
+	for (size_t i = 0; i < size; i++)
+	{
+		if (arr[i] > 9) throw std::exception("Value should be less than 10");
+		counter[arr[i]]++;
+	}
+	for (size_t i = 1; i < counter_size; i++)
+		counter[i] += counter[i - 1];
+	for (size_t i = 0; i < size; i++)
+	{
+		temp_arr[counter[arr[i]] - 1] = arr[i];
+		counter[arr[i]]--;
+	}
+	for (size_t i = 0; i < size; i++)
+		arr[i] = temp_arr[i];
+}
+
 void sort_algorithm::swap(int& a, int& b)
 {
 	auto temp = a;
@@ -101,4 +125,3 @@ int sort_algorithm::partition(int* arr, const int& low, const int& high)
 	swap(arr[index], arr[high]);
 	return index;
 }
-

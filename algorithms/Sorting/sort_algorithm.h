@@ -10,6 +10,7 @@ public:
 	static void insertion_sort(int* arr, const size_t& size);
 	static void quick_sort(int* arr, const size_t& low, const size_t& high);
 	static void selection_sort(int* arr, const size_t& size);
+	static void counting_sort(int* arr, const size_t& size);
 private:
 	sort_algorithm() = delete;
 	static void swap(int& a, int& b);
