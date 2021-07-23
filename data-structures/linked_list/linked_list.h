@@ -6,10 +6,11 @@ class linked_list
 {
 public:
 	linked_list();
+	~linked_list();
 	node::node* front();
 	node::node* end();
 	node::node* find(const int& value);
-	const size_t get_size() const;
+	const size_t size() const;
 	bool empty();
 	void clear();
 	void assign(const int& value);
@@ -20,9 +21,10 @@ public:
 	void insert_after(node::node*& element, const int& value);
 	void erase_after(node::node*& element);
 	void display();
+	void reverse();
 private:
-	node::node* first;
-	size_t size;
+	node::node* m_Head;
+	size_t m_Size;
 };
 
 #endif
